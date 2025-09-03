@@ -1,70 +1,71 @@
 CREATE TABLE ESTUDIANTES(
-	id_estudiante NUMBER,
-	pnombre VARCHAR2,
-	snombre VARCHAR2,
-	papellido VARCHAR2,
-	sapellido VARCHAR2
-	run NUMBER,
-	dv VARCHAR2,
-	año_ingreso TIMESTAMP,
-	id_carrera NUMBER);
+	id_estudiante NUMBER PRIMARY KEY,
+	pnombre VARCHAR2(50) NOT NULL,
+	snombre VARCHAR2(50),
+	papellido VARCHAR2(50) NOT NULL,
+	sapellido VARCHAR2(50)
+	run NUMBER NOT NULL,
+	dv VARCHAR2(1) NOT NULL,
+	año_ingreso NUMBER(4) NOT NULL,
+	FOREIGN KEY (id_carrera) REFERENCES CARRERAS(id_carrera));
 	
 CREATE TABLE DOCENTES(
-	id_docente NUMBER,
-	pnombre VARCHAR2,
-	snombre VARCHAR2,
-	papellido VARCHAR2,
-	sapellido VARCHAR2
-	run NUMBER,
-	dv VARCHAR2,
-	id_especialidad NUMBER);
+	id_docente NUMBER PRIMARY KEY,
+	pnombre VARCHAR2(50) NOT NULL,
+	snombre VARCHAR2(50),
+	papellido VARCHAR2(50) NOT NULL,
+	sapellido VARCHAR2(50),
+	run NUMBER NOT NULL,
+	dv VARCHAR2(1) NOT NULL,
+	FOREIGN KEY (id_especialidad) REFERENCES ESPECIALIDAD(id_especialidad));
 	
 CREATE TABLE CARRERAS(
-	id_carrera NUMBER,
-	codigo VARCHAR2,
-	nombre VARCHAR2,
-	id_facultad NUMBER);
+	id_carrera NUMBER PRIMARY KEY,
+	codigo VARCHAR2(50) NOT NULL,
+	nombre VARCHAR2(50) NOT NULL,
+	FOREIGN KEY (id_facultad) REFERENCES FACULTAD(id_facultad));
 	
 CREATE TABLE ASIGNATURA(
-	id_asignatura NUMBER,
-	codigo VARCHAR2,
-	nombre VARCHAR2,
-	créditos NUMBER,
-	nivel NUMBER,
-	id_carrera NUMBER);
+	id_asignatura NUMBER PRIMARY KEY,
+	codigo VARCHAR2(50) NOT NULL,
+	nombre VARCHAR2(50) NOT NULL,
+	creditos NUMBER NOT NULL,
+	nivel NUMBER NOT NULL,
+	FOREIGN KEY (id_carrera) REFERENCES CARRERAS(id_carrera));
 	
 CREATE TABLE SEMESTRES(
-	id_semestre NUMBER,
-	año TIMESTAMP,
-	periodo VARCHAR2,
-	fecha_ini TIMESTAMP,
-	fecha_ter TIMESTAMP);
+	id_semestre NUMBER PRIMARY KEY,
+	año NUMBER(4) NOT NULL, -- AÑO TIPO 2025, 2026, 2027
+	periodo VARCHAR2(50) NOT NULL,
+	fecha_ini DATE, -- USARIA TIMESTAMP PERO NI SI QUIERA NECESITO LA HORA
+	fecha_ter DATE);
 	
 CREATE TABLE INSCRIPCIONES(
-	id_inscripcion NUMBER,
-	id_asignatura NUMBER,
-	id_docente NUMBER,
-	id_semestre NUMBER,
+	id_inscripcion NUMBER PRIMARY KEY,
+	FOREIGN KEY (id_estudiante) REFERENCES ESTUDIANTES(id_estudiante),
+	FOREIGN KEY (id_asignatura) REFERENCES ASIGNATURA(id_asignatura),
+	FOREIGN KEY (id_docente) REFERENCES DOCENTES(id_docente),
+	FOREIGN KEY (id_semestre) REFERENCES SEMESTRES(id_semestre),
 	nota_final NUMBER);
 	
 CREATE TABLE EVALUACIONES(
-	id_evaluacion NUMBER,
-	código VARCHAR2,
-	tipo VARCHAR2,
-	fecha TIMESTAMP,
+	id_evaluacion NUMBER PRIMARY KEY,
+	codigo VARCHAR2(50) NOT NULL,
+	tipo VARCHAR2(50) NOT NULL,
+	fecha DATE NOT NULL,
 	puntaje_maximo NUMBER,
-	id_asignatura NUMBER);
+	FOREIGN KEY (id_asignatura) REFERENCES ASIGNATURA(id_asignatura));
 	
 CREATE TABLE RESULTADO_EVALUACIONES(
-	id_resul_eval NUMBER,
-	id_estudiante NUMBER,
-	id_evaluacion NUMBER,
+	id_resul_eval NUMBER PRIMARY KEY,
+	FOREIGN KEY (id_estudiante) REFERENCES ESTUDIANTES(id_estudiante),
+	FOREIGN KEY (id_evaluacion) REFERENCES EVALUACIONES(id_evaluacion),
 	puntaje_obt NUMBER);
 	
 CREATE TABLE ESPECIALIDAD(
-	id_especialidad NUMBER,
-	nombre VARCHAR2);
+	id_especialidad NUMBER PRIMARY KEY,
+	nombre VARCHAR2(50) NOT NULL);
 	
 CREATE TABLE FACULTAD(
-	id_facultad NUMBER,
-	nombre VARCHAR2);
+	id_facultad NUMBER PRIMARY KEY,
+	nombre VARCHAR2(50) NOT NULL);
