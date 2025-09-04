@@ -489,6 +489,13 @@ INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-132', 'Asignatura 132
 INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-133', 'Asignatura 133', 20, 4, 1850);
 INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-134', 'Asignatura 134', 30, 5, 550);
 INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-135', 'Asignatura 135', 10, 4, 1450);
+INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-136', 'Asignatura 136', 10, 4, 1450);
+INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-137', 'Asignatura 137', 10, 4, 1450);
+INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-138', 'Asignatura 138', 10, 4, 1450);
+INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-139', 'Quimica elemental 3', 100, 450, 550);
+INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-140', 'Astronomia a ciegas', -1, 4, 50);
+INSERT INTO ASIGNATURA VALUES(seq_asignaturas.NEXTVAL, 'AS-141', 'Ecuaciones diferenciales ordinarias', -10, 4, 250);
+
 
 -- SEMESTRES
 INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2020, 'PRIMERO', TO_DATE('2020-03-01','YYYY-MM-DD'), TO_DATE('2020-07-15','YYYY-MM-DD'));
@@ -1503,6 +1510,7 @@ INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Emma', NULL, 'Parra', N
 INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Gladys', NULL, 'Torres', NULL, 19977287, '0', 2023, 600);
 INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Julio', NULL, 'Gutiérrez', 'Sánchez', 13285266, '2', 2024, 750);
 INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'María', NULL, 'Herrera', NULL, 17196343, '0', 2024, 1300);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'FABRIZIO', 'ENRIQUE', 'BRAVO', 'ARENAS', 12345678, '9', 2020, 350);
 
 -- DOCENTES
 INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Luis', 'Dominique', 'Riquelme', NULL, 15322228, '8', 165);
