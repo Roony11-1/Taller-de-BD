@@ -839,32 +839,135 @@ CREATE TABLE INSCRIPCIONES
 -- ==============================================
 
 -- Insertar SEMESTRES
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2020, 'PRIMERO', TO_DATE('2020-03-01','YYYY-MM-DD'), TO_DATE('2020-07-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2020, 'SEGUNDO', TO_DATE('2020-08-01','YYYY-MM-DD'), TO_DATE('2020-12-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2021, 'PRIMERO', TO_DATE('2021-03-01','YYYY-MM-DD'), TO_DATE('2021-07-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2021, 'SEGUNDO', TO_DATE('2021-08-01','YYYY-MM-DD'), TO_DATE('2021-12-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2022, 'PRIMERO', TO_DATE('2022-03-01','YYYY-MM-DD'), TO_DATE('2022-07-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2022, 'SEGUNDO', TO_DATE('2022-08-01','YYYY-MM-DD'), TO_DATE('2022-12-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2023, 'PRIMERO', TO_DATE('2023-03-01','YYYY-MM-DD'), TO_DATE('2023-07-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2023, 'SEGUNDO', TO_DATE('2023-08-01','YYYY-MM-DD'), TO_DATE('2023-12-15','YYYY-MM-DD'));;
 INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2024, 'PRIMERO', TO_DATE('2024-03-01','YYYY-MM-DD'), TO_DATE('2024-07-15','YYYY-MM-DD'));
-INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2024, 'SEGUNDO', TO_DATE('2024-08-01','YYYY-MM-DD'), TO_DATE('2024-12-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2024 'SEGUNDO', TO_DATE('2024-08-01','YYYY-MM-DD'), TO_DATE('2024-12-15','YYYY-MM-DD'));
 INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2025, 'PRIMERO', TO_DATE('2025-03-01','YYYY-MM-DD'), TO_DATE('2025-07-15','YYYY-MM-DD'));
+INSERT INTO SEMESTRES VALUES(seq_semestres.NEXTVAL, 2025, 'SEGUNDO', TO_DATE('2025-08-01','YYYY-MM-DD'), TO_DATE('2025-12-15','YYYY-MM-DD'));
 
 -- Insertar ESTUDIANTES
-INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Juan', 'Pablo', 'Gómez', 'Soto', 12345678, 'K', 2023, 50);
-INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'María', NULL, 'López', 'Martínez', 23456789, '3', 2022, 100);
+INSERT INTO ESTUDIANTES VALUES(
+	seq_estudiantes.NEXTVAL,
+	'Juan', 
+	'Pablo', 
+	'Gómez', 
+	'Soto', 
+	12345678, 
+	'K', 
+	2023, -- año ingreso
+	50); -- carrera va de 50 a 1000, con aumentos de 50
+	
+	
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'María', NULL, 'López', NULL, 23456789, '3', 2022, 100);
 INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Pedro', 'Andrés', 'Ramírez', 'Silva', 34567890, '7', 2024, 150);
-INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Camila', NULL, 'Fernández', 'Díaz', 45678901, '1', 2023, 200);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Camila', NULL, 'Fernández', NULL, 45678901, '1', 2023, 200);
+
+-- Insertar ESTUDIANTES adicionales
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Ana', NULL, 'Muñoz', NULL, 56789012, '2', 2021, 250);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Luis', 'Fernando', 'Torres', 'García', 67890123, '5', 2020, 300);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Valentina', NULL, 'Castillo', NULL, 78901234, '8', 2023, 350);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Diego', NULL, 'Rojas', NULL, 89012345, '4', 2022, 400);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Isabel', 'Andrea', 'Navarro', 'Soto', 90123456, 'K', 2024, 450);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Sebastián', NULL, 'Mora', NULL, 11223344, '3', 2025, 500);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Renata', 'María', 'Pizarro', 'López', 22334455, '6', 2022, 550);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Tomás', NULL, 'Bravo', NULL, 33445566, '1', 2021, 600);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Daniela', 'Fernanda', 'Cortés', 'Reyes', 44556677, '8', 2023, 650);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Nicolás', NULL, 'Gallardo', NULL, 55667788, '9', 2020, 700);
+
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Florencia', NULL, 'Peña', NULL, 66778899, '5', 2024, 750);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Joaquín', 'Antonio', 'Herrera', 'Molina', 77889900, '3', 2021, 800);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Antonia', NULL, 'Zúñiga', NULL, 88990011, '4', 2022, 850);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Vicente', NULL, 'Leiva', NULL, 99001122, 'K', 2023, 900);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Josefa', 'Isidora', 'Silva', 'Fernández', 10111213, '7', 2025, 950);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Matilde', NULL, 'Riquelme', NULL, 12131415, '2', 2024, 1000);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Cristóbal', NULL, 'Ulloa', NULL, 13141516, '6', 2021, 50);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Ignacia', NULL, 'Vergara', NULL, 14151617, '1', 2023, 100);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Gabriel', 'Esteban', 'Oyarzún', 'Pérez', 15161718, '9', 2022, 150);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Amanda', NULL, 'Salinas', NULL, 16171819, '4', 2025, 200);
+
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Emilia', 'Josefina', 'Alarcón', 'Cáceres', 17181920, '5', 2023, 250);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Benjamín', NULL, 'Campos', NULL, 18192021, '8', 2020, 300);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Javiera', NULL, 'Espinoza', NULL, 19202122, '3', 2021, 350);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Agustín', NULL, 'Paredes', NULL, 20212223, 'K', 2022, 400);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Trinidad', 'Beatriz', 'Gutiérrez', 'Torres', 21222324, '6', 2023, 450);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Martín', NULL, 'Fuentes', NULL, 22232425, '2', 2025, 500);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Sofía', 'Camila', 'Lagos', 'Muñoz', 23242526, '4', 2021, 550);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Felipe', NULL, 'Carrasco', NULL, 24252627, '5', 2022, 600);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Paulina', NULL, 'Meza', NULL, 25262728, '8', 2024, 650);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Maximiliano', NULL, 'Sanhueza', NULL, 26272829, '1', 2020, 700);
+
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Constanza', 'Elena', 'Cuevas', 'Araya', 27282930, '7', 2025, 750);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Rodrigo', NULL, 'Martínez', NULL, 28293031, '2', 2021, 800);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Carolina', NULL, 'Morales', NULL, 29303132, '9', 2023, 850);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Francisco', NULL, 'Delgado', NULL, 30313233, '5', 2024, 900);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Fernanda', 'Paula', 'Barrera', 'Ortiz', 31323334, 'K', 2020, 950);
+INSERT INTO ESTUDIANTES VALUES(seq_estudiantes.NEXTVAL, 'Fabrizio', NULL, 'Bravo', NULL, 32333435, '6', 2022, 1000);
+
 
 -- Insertar DOCENTES
-INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Carlos', 'Andrés', 'Reyes', 'Pérez', 11111111, '9', 15);
-INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Sofía', NULL, 'Vargas', 'Torres', 22222222, '7', 30);
-INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Matías', 'Ignacio', 'Cáceres', 'Mendoza', 33333333, 'K', 45);
+INSERT INTO DOCENTES VALUES(
+	seq_docentes.NEXTVAL, 
+	'Carlos', 
+	'Andrés', 
+	'Reyes', 
+	'Pérez', 
+	11111111, 
+	'9', 
+	15); -- especialidad va de 15 a 300 con aumentos de 15
+
+
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Sofía', NULL, 'Vargas', NULL, 22222222, '7', 30);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Matías', 'Ignacio', 'Cáceres', NULL, 33333333, 'K', 45);
+
+-- Insertar DOCENTES adicionales
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Andrea', NULL, 'Méndez', NULL, 44444444, '1', 60);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Francisco', 'Andrés', 'Pino', 'González', 55555555, '5', 75);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Marcela', NULL, 'Quintana', NULL, 66666666, '9', 90);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Óscar', NULL, 'Salazar', NULL, 77777777, '4', 105);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Patricia', 'María', 'Bustos', 'Araya', 88888888, '7', 120);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Claudio', NULL, 'Garrido', NULL, 99999999, '3', 135);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Gabriela', NULL, 'Toledo', NULL, 12312312, '2', 150);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Raúl', NULL, 'Ibáñez', NULL, 23423423, 'K', 165);
+INSERT INTO DOCENTES VALUES(seq_docentes.NEXTVAL, 'Tamara', NULL, 'Salinas', NULL, 34534534, '1' 180);
+
 
 -- Insertar EVALUACIONES
-INSERT INTO EVALUACIONES VALUES(seq_evaluaciones.NEXTVAL, 30, 'DA-DD01-EX1', 'PRUEBA PARCIAL', TO_DATE('2024-04-15','YYYY-MM-DD'), 30);
+INSERT INTO EVALUACIONES VALUES(
+	seq_evaluaciones.NEXTVAL, 
+	30, -- asignatura va de 30 a 1200 con aumentos de 30
+	'DA-DD01-EX1', 
+	'PRUEBA PARCIAL', 
+	TO_DATE('2024-04-15','YYYY-MM-DD'), 
+	30); -- ponderacion
+
 INSERT INTO EVALUACIONES VALUES(seq_evaluaciones.NEXTVAL, 60, 'AM-DD01-EX1', 'PRUEBA FINAL', TO_DATE('2024-06-10','YYYY-MM-DD'), 50);
 INSERT INTO EVALUACIONES VALUES(seq_evaluaciones.NEXTVAL, 90, 'DA-DA01-EX1', 'CONTROL', TO_DATE('2024-05-20','YYYY-MM-DD'), 20);
 
 -- Insertar RESULTADO_EVALUACIONES
-INSERT INTO RESULTADO_EVALUACIONES VALUES(seq_resuleval.NEXTVAL, 1, 300, 5.5);
+INSERT INTO RESULTADO_EVALUACIONES VALUES(
+	seq_resuleval.NEXTVAL, 
+	1, -- id estudiante aumentan en 1
+	300, -- id evaluacion aumentan en 300
+	5.5);
+	
 INSERT INTO RESULTADO_EVALUACIONES VALUES(seq_resuleval.NEXTVAL, 2, 600, 6.2);
 INSERT INTO RESULTADO_EVALUACIONES VALUES(seq_resuleval.NEXTVAL, 3, 900, 4.8);
 
 -- Insertar INSCRIPCIONES
-INSERT INTO INSCRIPCIONES VALUES(seq_inscripciones.NEXTVAL, 1, 30, 2, 250, 6.0);
+INSERT INTO INSCRIPCIONES VALUES(
+	seq_inscripciones.NEXTVAL, 
+	1, -- estudiantes aumenta en 1
+	30, -- asignatura aumenta en 30
+	2, -- docente aumenta en 2
+	250, -- semestre aumenta en 250 y va del 250 al 2750
+	6.0);
+	
 INSERT INTO INSCRIPCIONES VALUES(seq_inscripciones.NEXTVAL, 2, 60, 4, 500, 5.5);
 INSERT INTO INSCRIPCIONES VALUES(seq_inscripciones.NEXTVAL, 3, 90, 6, 750, 4.2);
