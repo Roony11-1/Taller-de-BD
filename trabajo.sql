@@ -25,26 +25,26 @@ DROP SEQUENCE seq_periodo;
 CREATE TABLE FACULTAD
 (
     id_facultad NUMBER PRIMARY KEY,
-    nombre VARCHAR2(50) NOT NULL
+    nombre_facultad VARCHAR2(50) NOT NULL
 );
 
 CREATE TABLE CARRERA
 (
     id_carrera NUMBER PRIMARY KEY,
-    codigo VARCHAR2(50) NOT NULL UNIQUE,
-    nombre VARCHAR2(50) NOT NULL,
+    codigo_carrera VARCHAR2(50) NOT NULL UNIQUE,
+    nombre_carrera VARCHAR2(50) NOT NULL,
     id_facultad NUMBER  NOT NULL
 );
 
 CREATE TABLE ESTUDIANTE
 (
     id_estudiante NUMBER PRIMARY KEY,
-    pnombre VARCHAR2(50) NOT NULL,
-    snombre VARCHAR2(50),
-    papellido VARCHAR2(50) NOT NULL,
-    sapellido VARCHAR2(50),
-    run NUMBER NOT NULL UNIQUE,
-    dv VARCHAR2(1) NOT NULL,
+    pnombre_estudiante VARCHAR2(50) NOT NULL,
+    snombre_estudiante VARCHAR2(50),
+    papellido_estudiante VARCHAR2(50) NOT NULL,
+    sapellido_estudiante VARCHAR2(50),
+    run_estudiante NUMBER NOT NULL UNIQUE,
+    dv_estudiante VARCHAR2(1) NOT NULL,
     año_ingreso NUMBER(4) NOT NULL,
     id_carrera NUMBER NOT NULL
 );
@@ -52,27 +52,27 @@ CREATE TABLE ESTUDIANTE
 CREATE TABLE ESPECIALIDAD
 (
     id_especialidad NUMBER PRIMARY KEY,
-    nombre VARCHAR2(50) NOT NULL,
+    nombre_especialidad VARCHAR2(50) NOT NULL,
     id_carrera NUMBER  NOT NULL
 );
 
 CREATE TABLE DOCENTE
 (
     id_docente NUMBER PRIMARY KEY,
-    pnombre VARCHAR2(50) NOT NULL,
-    snombre VARCHAR2(50),
-    papellido VARCHAR2(50) NOT NULL,
-    sapellido VARCHAR2(50),
-    run NUMBER NOT NULL,
-    dv VARCHAR2(1) NOT NULL,
+    pnombre_docente VARCHAR2(50) NOT NULL,
+    snombre_docente VARCHAR2(50),
+    papellido_docente VARCHAR2(50) NOT NULL,
+    sapellido_docente VARCHAR2(50),
+    run_docente NUMBER NOT NULL,
+    dv_docente VARCHAR2(1) NOT NULL,
     id_especialidad NUMBER NOT NULL
 );
 
 CREATE TABLE ASIGNATURA
 (
     id_asignatura NUMBER PRIMARY KEY,
-    codigo VARCHAR2(50) NOT NULL UNIQUE,
-    nombre VARCHAR2(50) NOT NULL,
+    codigo_asignatura VARCHAR2(50) NOT NULL UNIQUE,
+    nombre_asignatura VARCHAR2(50) NOT NULL,
     creditos NUMBER NOT NULL,
     nivel NUMBER NOT NULL,
     id_carrera NUMBER NOT NULL
@@ -91,9 +91,9 @@ CREATE TABLE EVALUACION
 (
     id_evaluacion NUMBER PRIMARY KEY,
     id_asignatura NUMBER NOT NULL,
-    codigo VARCHAR2(50) NOT NULL,
-    tipo VARCHAR2(50) NOT NULL,
-    fecha DATE NOT NULL,
+    codigo_evaluacion VARCHAR2(50) NOT NULL,
+    tipo_evaluacion VARCHAR2(50) NOT NULL,
+    fecha_evaluacion DATE NOT NULL,
     ponderacion NUMBER NOT NULL
 );
 
@@ -102,7 +102,7 @@ CREATE TABLE RESULTADO_EVALUACION
     id_resul_eval NUMBER PRIMARY KEY,
     id_estudiante NUMBER NOT NULL,
     id_evaluacion NUMBER NOT NULL,
-    nota NUMBER(2, 1) NOT NULL
+    nota_resul_eval NUMBER(2, 1) NOT NULL
 );
 
 CREATE TABLE INSCRIPCION
@@ -118,7 +118,7 @@ CREATE TABLE INSCRIPCION
 CREATE TABLE PERIODO
 (
 	id_periodo NUMBER,
-	nombre VARCHAR2(50)
+	nombre_periodo VARCHAR2(50)
 );
 
 	-- CARRERAS
