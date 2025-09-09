@@ -271,8 +271,6 @@ END;
 
 SET SERVEROUTPUT ON SIZE UNLIMITED;
 
--- Implementar un CURSOR anidado que, para cada docente, muestre las asignaturas y los estudiantes inscritos
-
 DECLARE
 BEGIN
     FOR REGISTRO_DOCENTE IN (
@@ -314,5 +312,6 @@ BEGIN
         END LOOP;
     END LOOP;
 END;
+
 
 
