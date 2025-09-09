@@ -39,9 +39,9 @@ BEGIN
         END IF;   
     END LOOP;
     
-    DBMS_OUTPUT.PUT_LINE('Notas de: '||V_NOMBRE);
+    DBMS_OUTPUT.PUT_LINE('[PRINT] Notas de: '||V_NOMBRE);
     FOR i IN 1 .. VAR_NOTAS.COUNT LOOP
-        DBMS_OUTPUT.PUT_LINE('Nota ' || i || ': ' || VAR_NOTAS(i));
+        DBMS_OUTPUT.PUT_LINE('[PRINT] Nota ' || i || ': ' || VAR_NOTAS(i));
     END LOOP;
     
 EXCEPTION
@@ -83,14 +83,14 @@ BEGIN
     FROM ESTUDIANTE e
     WHERE e.id_estudiante = V_ID_ESTUDIANTE;
     
-    DBMS_OUTPUT.PUT_LINE('Estudiante id: '|| V_ID_ESTUDIANTE);
-    DBMS_OUTPUT.PUT_LINE('Nombre: '||REGISTRO_ESTUDIANTE.nombre);
-    DBMS_OUTPUT.PUT_LINE('Rut: '||REGISTRO_ESTUDIANTE.rut);
-    DBMS_OUTPUT.PUT_LINE('Carrera: '||REGISTRO_ESTUDIANTE.carrera);
+    DBMS_OUTPUT.PUT_LINE('[PRINT] Estudiante id: '|| V_ID_ESTUDIANTE);
+    DBMS_OUTPUT.PUT_LINE('[PRINT] Nombre: '||REGISTRO_ESTUDIANTE.nombre);
+    DBMS_OUTPUT.PUT_LINE('[PRINT] Rut: '||REGISTRO_ESTUDIANTE.rut);
+    DBMS_OUTPUT.PUT_LINE('[PRINT] Carrera: '||REGISTRO_ESTUDIANTE.carrera);
     IF REGISTRO_ESTUDIANTE.promedio IS NOT NULL THEN
-        DBMS_OUTPUT.PUT_LINE('Promedio: '||REGISTRO_ESTUDIANTE.promedio);
+        DBMS_OUTPUT.PUT_LINE('[PRINT] Promedio: '||REGISTRO_ESTUDIANTE.promedio);
     ELSE
-        DBMS_OUTPUT.PUT_LINE('Promedio: [Sin notas]');
+        DBMS_OUTPUT.PUT_LINE('[PRINT] Promedio: [Sin notas]');
     END IF;
 
 EXCEPTION
@@ -249,7 +249,7 @@ BEGIN
     ON a.id_asignatura = i.id_asignatura
     WHERE s.id_semestre = V_IDSEMESTRE
     ORDER BY s.año, p.nombre_periodo) LOOP
-        DBMS_OUTPUT.PUT_LINE('id inscripcion: '||REG_INS_SEMESTRE.id_inscripcion||' - año: '||REG_INS_SEMESTRE.año||' - periodo: '||REG_INS_SEMESTRE.nombre_periodo||' - estudiante: '||REG_INS_SEMESTRE.nombre_estudiante||' - asignatura: '||REG_INS_SEMESTRE.nombre_asignatura);
+        DBMS_OUTPUT.PUT_LINE('[PRINT] id inscripcion: '||REG_INS_SEMESTRE.id_inscripcion||' - año: '||REG_INS_SEMESTRE.año||' - periodo: '||REG_INS_SEMESTRE.nombre_periodo||' - estudiante: '||REG_INS_SEMESTRE.nombre_estudiante||' - asignatura: '||REG_INS_SEMESTRE.nombre_asignatura);
         V_COUNT := V_COUNT + 1;
     END LOOP;
     
@@ -283,7 +283,7 @@ BEGIN
     FROM DOCENTE d
     ORDER BY d.id_docente) LOOP
     
-        DBMS_OUTPUT.PUT_LINE('Docente: '||REGISTRO_DOCENTE.nombre_docente||' - id Docente: '||REGISTRO_DOCENTE.id_docente);
+        DBMS_OUTPUT.PUT_LINE('[PRINT] Docente: '||REGISTRO_DOCENTE.nombre_docente||' - id Docente: '||REGISTRO_DOCENTE.id_docente);
         
         FOR REGISTRO_ASIGNATURA IN (
         SELECT DISTINCT
@@ -293,7 +293,7 @@ BEGIN
         JOIN ASIGNATURA a ON a.id_asignatura = i.id_asignatura
         WHERE i.id_docente = REGISTRO_DOCENTE.id_docente
         ORDER BY a.id_asignatura) LOOP
-            DBMS_OUTPUT.PUT_LINE('  Asignatura: '||REGISTRO_ASIGNATURA.nombre_asignatura);
+            DBMS_OUTPUT.PUT_LINE('[PRINT]  Asignatura: '||REGISTRO_ASIGNATURA.nombre_asignatura);
             
             FOR REGISTRO_INSCRIPCION IN (
             SELECT 
@@ -307,11 +307,10 @@ BEGIN
             FROM INSCRIPCION i
             JOIN ESTUDIANTE e ON e.id_estudiante = i.id_estudiante
             WHERE i.id_docente   = REGISTRO_DOCENTE.id_docente AND i.id_asignatura = REGISTRO_ASIGNATURA.id_asignatura) LOOP
-                DBMS_OUTPUT.PUT_LINE('    Inscripción: '||REGISTRO_INSCRIPCION.id_inscripcion||' - estudiante: '||REGISTRO_INSCRIPCION.nombre_estudiante||' - id estudiante: '||REGISTRO_INSCRIPCION.id_estudiante||' - id semestre: '||REGISTRO_INSCRIPCION.id_semestre);
+                DBMS_OUTPUT.PUT_LINE('[PRINT]    Inscripción: '||REGISTRO_INSCRIPCION.id_inscripcion||' - estudiante: '||REGISTRO_INSCRIPCION.nombre_estudiante||' - id estudiante: '||REGISTRO_INSCRIPCION.id_estudiante||' - id semestre: '||REGISTRO_INSCRIPCION.id_semestre);
             END LOOP;
         END LOOP;
     END LOOP;
 END;
-
 
 
