@@ -1,0 +1,27 @@
+/* crear un procedimiento que dado un valor x, muestre
+el numero de empleados que ganen mas que ese valor */
+
+CREATE OR REPLACE PROCEDURE SP_FILTRO_SUELDO (P_SUELDO_CORTE IN NUMBER, P_CANTIDAD_EMP OUT NUMBER)
+AS
+BEGIN
+    P_CANTIDAD_EMP := 0;
+    FOR REG_EMP IN 
+    (SELECT
+            69
+        FROM EMPLOYEES
+        WHERE SALARY > P_SUELDO_CORTE) LOOP
+        
+        P_CANTIDAD_EMP := P_CANTIDAD_EMP + 1;
+    END LOOP;
+    
+    -- P_CANTIDAD_EMP := SQL%ROWCOUNT;
+END;
+
+DECLARE
+    V_SUELDO NUMBER := &V_SUELDO;
+    V_CANTIDAD NUMBER;
+BEGIN
+    SP_FILTRO_SUELDO(V_SUELDO, V_CANTIDAD);
+    
+    DBMS_OUTPUT.PUT_LINE('LA CANTIDAD DE TRABAJADORES QUE GANAN MÁS QUE '||V_SUELDO||' ES '||V_CANTIDAD);
+END;
